@@ -23,16 +23,16 @@ export class ProductService {
     return this.useModel.find(options);
   }
 
-  count(options) {
-    return this.useModel.count(options).exec();
-  }
-
   async update(id, createProductDto: CreateProductDto): Promise<Product> {
     return await this.useModel.findByIdAndUpdate(id, createProductDto);
   }
 
   async delete(id) {
     return await this.useModel.findByIdAndRemove(id);
+  }
+
+  async findOneProduct(id) {
+    return await this.useModel.findById(id);
   }
 
   async findOne(query, projection = {}) {

@@ -105,4 +105,9 @@ export class ProductController {
   async delete(@Param('id') id: string) {
     return await this.service.delete(id);
   }
+
+  @Get('/findOneProduct/:id')
+  async findOneProduct(@Param('id') id: string) {
+    return this.service.findOneProduct(id);
+  }
 }
